@@ -5,7 +5,7 @@ import secrets
 
 alphabet = string.ascii_letters + string.digits + string.punctuation
 # Avoid things that cause problems when copypasta'd into bash.
-alphabet = alphabet.replace('"', '').replace('!', '').replace('\\', '').replace('$', '')
+alphabet = alphabet.replace('"', '').replace('!', '').replace('\\', '').replace('$', '').replace('`', '')
 password = ''.join(secrets.choice(alphabet) for i in range(64))
 
 with open('server/rcon.cfg', 'w') as f:
