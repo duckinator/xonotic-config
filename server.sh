@@ -14,5 +14,6 @@ else
 fi
 
 mkdir -p userdir/data || exit 1
-cp server/server.cfg userdir/data/server.cfg || exit 1
+rm -f userdir/data/*.cfg
+cp server/*.cfg userdir/data/ || exit 1
 exec "$XONOTIC" -userdir $(pwd)/userdir
