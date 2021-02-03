@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd $(dirname $0)
+
 # Set $XONOTIC_DEDICATED to override.
 XONOTIC=""
 
