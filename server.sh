@@ -16,4 +16,10 @@ fi
 mkdir -p userdir/data || exit 1
 rm -f userdir/data/*.cfg
 cp server/*.cfg userdir/data/ || exit 1
-exec "$XONOTIC" -userdir $(pwd)/userdir
+
+if $(which daemon &>/dev/null); then
+    exec daemon -r -o $(pwd)/xonotic.log "$XONOTIC" -userdir $(pwd)/userdir
+else
+    echo "!!! No \`daemon\` executable. (Probably not FreeBSD?)"
+    exec "$XONOTIC" -userdir $(pwd)/userdir
+fi
